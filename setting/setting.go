@@ -48,6 +48,13 @@ type LogConfig struct {
 }
 
 func Init(filePath string) (err error) {
+	// 如果filePath以.exe文件结尾，则去除.exe
+	fmt.Printf(filePath)
+	// TODO 不知道为什么air运行会带.exe的后缀名，后面有时间可排查
+	if len(filePath) > 4 && filePath[len(filePath)-4:] == ".exe" {
+		filePath = filePath[:len(filePath)-4]
+	}
+	fmt.Printf(filePath)
 	viper.SetConfigFile(filePath)
 
 	err = viper.ReadInConfig() // 读取配置信息
