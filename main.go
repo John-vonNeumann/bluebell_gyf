@@ -2,13 +2,13 @@ package main
 
 import (
 	"fmt"
-	"gin-cli/controller"
-	"gin-cli/dao/mysql"
-	"gin-cli/dao/redis"
-	"gin-cli/logger"
-	"gin-cli/pkg/snowflake"
-	"gin-cli/router"
-	"gin-cli/setting"
+	"bluebell_gyf/controller"
+	"bluebell_gyf/dao/mysql"
+	"bluebell_gyf/dao/redis"
+	"bluebell_gyf/logger"
+	"bluebell_gyf/pkg/snowflake"
+	"bluebell_gyf/router"
+	"bluebell_gyf/setting"
 	"os"
 )
 

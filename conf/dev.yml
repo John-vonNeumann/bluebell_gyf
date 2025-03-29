@@ -1,4 +1,4 @@
-name: "gin-cli"
+name: "bluebell_gyf"
 mode: "dev"
 port: 8084
 version: "v0.0.1"

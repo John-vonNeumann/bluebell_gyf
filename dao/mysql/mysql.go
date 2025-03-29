@@ -1,8 +1,9 @@
 package mysql
 
 import (
+	"bluebell_gyf/setting"
 	"fmt"
-	"gin-cli/setting"
+
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/jmoiron/sqlx"
 )
@@ -11,14 +12,15 @@ var db *sqlx.DB
 
 // Init 初始化MySQL连接
 func Init(cfg *setting.MySQLConfig) (err error) {
-	dsn := fmt.Sprintf("%s:%s@tcp(%s:%d)/%s?charset=utf8&parseTime=True&loc=Local", cfg.User, cfg.Password, cfg.Host, cfg.Port, cfg.DB)
-	db, err := sqlx.Connect("mysql", dsn)
+	// "user:password@tcp(host:port)/dbname"
+	dsn := fmt.Sprintf("%s:%s@tcp(%s:%d)/%s?parseTime=true&loc=Local", cfg.User, cfg.Password, cfg.Host, cfg.Port, cfg.DB)
+	db, err = sqlx.Connect("mysql", dsn)
 	if err != nil {
-		return err
+		return
 	}
 	db.SetMaxOpenConns(cfg.MaxOpenConns)
 	db.SetMaxIdleConns(cfg.MaxIdleConns)
-	return nil
+	return
 }
 
 // Close 关闭MySQL连接

@@ -2,7 +2,7 @@ package controller
 
 import (
 	"fmt"
-	"gin-cli/models"
+	"bluebell_gyf/models"
 	"reflect"
 	"strings"
 

@@ -2,7 +2,7 @@ package redis
 
 import (
 	"fmt"
-	"gin-cli/setting"
+	"bluebell_gyf/setting"
 	"github.com/go-redis/redis"
 )
 

@@ -1,7 +1,7 @@
 package logger
 
 import (
-	"gin-cli/setting"
+	"bluebell_gyf/setting"
 	"github.com/gin-gonic/gin"
 	"github.com/natefinch/lumberjack"
 	"go.uber.org/zap"

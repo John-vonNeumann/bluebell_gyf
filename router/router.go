@@ -1,7 +1,8 @@
 package router
 
 import (
-	"gin-cli/logger"
+	"bluebell_gyf/controller"
+	"bluebell_gyf/logger"
 	"github.com/gin-gonic/gin"
 	"net/http"
 )
@@ -23,7 +24,11 @@ func SetupRouter(mode string) *gin.Engine {
 	r.GET("/ping", func(c *gin.Context) {
 		c.String(http.StatusOK, "pong")
 	})
-
+	v1 := r.Group("/api/v1")
+	// 注册
+	v1.POST("/signup", controller.SignUpHandler)
+	// 登录
+	v1.POST("/login", controller.LoginHandler)
 	r.NoRoute(func(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{
 			"msg": "404",
