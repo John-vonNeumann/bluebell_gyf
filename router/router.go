@@ -3,6 +3,7 @@ package router
 import (
 	"bluebell_gyf/controller"
 	"bluebell_gyf/logger"
+	"bluebell_gyf/middlewares"
 	"github.com/gin-gonic/gin"
 	"net/http"
 )
@@ -29,6 +30,10 @@ func SetupRouter(mode string) *gin.Engine {
 	v1.POST("/signup", controller.SignUpHandler)
 	// 登录
 	v1.POST("/login", controller.LoginHandler)
+	v1.GET("/community", controller.CommunityHandler)
+
+	v1.Use(middlewares.JWTAuthMiddleware())
+
 	r.NoRoute(func(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{
 			"msg": "404",
