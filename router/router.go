@@ -31,7 +31,7 @@ func SetupRouter(mode string) *gin.Engine {
 	// 登录
 	v1.POST("/login", controller.LoginHandler)
 	v1.GET("/community", controller.CommunityHandler)
-
+	v1.GET("/community/:id", controller.CommunityDetailHandler)
 	v1.Use(middlewares.JWTAuthMiddleware())
 
 	r.NoRoute(func(c *gin.Context) {
